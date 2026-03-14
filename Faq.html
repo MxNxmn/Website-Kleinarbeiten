@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Kleinarbeiten Bad Iburg</title>
+    <style>
+        /* Minimalistisches Design & Grundeinstellungen */
+        :root {
+            --primary-color: #1e293b; 
+            --accent-color: #0ea5e9; 
+            --bg-color: #ffffff; 
+            --section-bg: #f8fafc; 
+            --text-color: #334155;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        .container {
+            max-width: 900px; 
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem; 
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* FAQ Styles */
+        .faq-container {
+            margin-bottom: 4rem;
+        }
+
+        .faq-item {
+            background: var(--section-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: flex-start;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .faq-question span {
+            color: var(--accent-color);
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .faq-answer {
+            color: #475569;
+            font-size: 1rem;
+            padding-left: 2.5rem; /* Eingerückt, passend zum Icon */
+        }
+
+        /* Kontakt-Box am Ende */
+        .contact-box {
+            text-align: center;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .contact-box h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #0284c7;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 0 2rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 600px) {
+            .faq-answer {
+                padding-left: 0;
+                margin-top: 0.5rem;
+            }
+            .faq-question {
+                flex-direction: column;
+            }
+            .faq-question span {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+
+        <header>
+            <h1>Häufige Fragen (FAQ)</h1>
+            <p class="subtitle">Hier finden Sie Antworten auf die wichtigsten Fragen zu unserem Service.</p>
+        </header>
+
+        <section class="faq-container">
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>💡</span> Wie sind die Helfer versichert?
+                </div>
+                <div class="faq-answer">
+                    Personenschäden sind standardmäßig durch die Berufsgenossenschaft gedeckt. Im Falle von größeren Sachschäden greift in der Regel die Betriebshaftpflichtversicherung                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>💡</span> Was passiert, wenn ich oder ein Helfer spontan absagen müssen?
+                </div>
+                <div class="faq-answer">
+                    Bitte geben sie uns aller spätestens eine Stunde vor dem Arbeitsbeginn bescheid. Wenn sie diese Frist einhalten, lassen sich Aufträge kostenfrei stornieren. Alles spätere, vor allem wenn der Helfer sich vorbereitet hat und oder auf dem Weg gemacht hat, werden wir ihnen eine Stunde in Rechnung stellen                </div>
+            </div>
+
+        </section>
+
+        <section class="contact-box">
+            <h2>Ihre Frage war nicht dabei?</h2>
+            <p>Kein Problem! Schreiben Sie uns einfach eine kurze Nachricht und wir klären Ihr Anliegen individuell.</p>
+            <a href="index.html#kontakt" class="cta-button">Kontakt aufnehmen</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Kleinarbeiten Bad Iburg. Alle Rechte vorbehalten.</p>
+            <p style="margin-top: 10px;">
+                <a href="Impressum.html">Impressum</a> | 
+                <a href="Datenschutzerklärung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>

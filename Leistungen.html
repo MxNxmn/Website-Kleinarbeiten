@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leistungsübersicht | Kleinarbeiten Bad Iburg</title>
+    <style>
+        /* --- GRUNDEINSTELLUNGEN & VARIABLEN (Passend zur Startseite) --- */
+        :root {
+            --primary-color: #1e293b; 
+            --accent-color: #0ea5e9; 
+            --bg-color: #ffffff; 
+            --section-bg: #f8fafc; 
+            --text-color: #334155;
+            --border-color: #e2e8f0;
+            
+            /* Neue Farben für die spezifischen Kategorien */
+            --badge-koerperlich: #10b981; /* Frisches Grün */
+            --badge-mental: #3b82f6;     /* Klares Blau */
+            --badge-sozial: #f59e0b;     /* Warmes Orange */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            /* Sorgt für ein weiches Scrollen, wenn man auf die 3 Hauptboxen klickt */
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        .container {
+            max-width: 900px; 
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            padding: 3rem 0 3rem; 
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        /* --- DIE 3 KLICKBAREN SPARTEN (Inhaltsverzeichnis) --- */
+        .toc-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .toc-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: var(--section-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toc-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.06);
+            background: #fff;
+        }
+
+        .toc-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .toc-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        /* Kleine Etiketten (Badges) für die Einstufung */
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: white;
+        }
+
+        .badge.koerperlich { background-color: var(--badge-koerperlich); }
+        .badge.mental { background-color: var(--badge-mental); }
+        .badge.sozial { background-color: var(--badge-sozial); }
+
+        /* --- DIE LEISTUNGS-ABSCHNITTE --- */
+        .service-section {
+            background: #fff;
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+            /* Sorgt dafür, dass der Browser beim Scrollen etwas Platz nach oben lässt */
+            scroll-margin-top: 2rem; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--section-bg);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-header h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        /* Die Listen mit den genauen Aufgaben */
+        .task-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .task-list li {
+            position: relative;
+            padding: 1rem 1rem 1rem 2.8rem;
+            background: var(--section-bg);
+            border-radius: 8px;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .task-list li:hover {
+            transform: translateX(5px);
+            background: #f1f5f9;
+        }
+
+        .task-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-color);
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 4rem 0 2rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- RESPONSIVE DESIGN FÜR HANDYS --- */
+        @media (max-width: 768px) {
+            .toc-cards {
+                grid-template-columns: 1fr; /* Kacheln untereinander auf dem Handy */
+            }
+            .service-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .service-section {
+                padding: 1.5rem;
+            }
+            .task-list {
+                grid-template-columns: 1fr; /* Listenpunkte untereinander */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+            <h1>Unsere Leistungen im Detail</h1>
+            <p class="subtitle">Wählen Sie einen Bereich, um mehr zu erfahren.</p>
+        </header>
+
+        <!-- DIE 3 KLICKBAREN SPARTEN OBERHALB -->
+        <div class="toc-cards">
+            <a href="#gartenarbeiten" class="toc-card">
+                <div class="toc-icon">🌿</div>
+                <div class="toc-title">Hof- und Gartenarbeiten</div>
+                <span class="badge koerperlich"></span>
+            </a>
+
+            <a href="#technik" class="toc-card">
+                <div class="toc-icon">💻</div>
+                <div class="toc-title">Technik- & IT-Hilfe</div>
+                <span class="badge mental"></span>
+            </a>
+
+            <a href="#alltagsbegleitung" class="toc-card">
+                <div class="toc-icon">🤝</div>
+                <div class="toc-title">Alltagsbegleitung</div>
+                <span class="badge sozial"></span>
+            </a>
+        </div>
+
+        <!-- BEREICH 1: GARTEN -->
+        <section id="gartenarbeiten" class="service-section">
+            <div class="service-header">
+                <h2>🌿 Hof- und Gartenarbeiten</h2>
+                <span class="badge koerperlich"></span>
+            </div>
+            <ul class="task-list">
+                <li>Fegen</li>
+                <li>Rasen mähen</li>
+                <li>Kanten schneiden</li>
+                <li>Schnee räumen & Salz streuen</li>
+                <li>Laub harken & entsorgen</li>
+                <li>Pflanzenpflege (Gießen, Unkraut jäten)</li>
+                <li>Weitere, verwandte Tätigkeiten auf Anfrage</li>
+            </ul>
+        </section>
+
+        <!-- BEREICH 2: TECHNIK -->
+        <section id="technik" class="service-section">
+            <div class="service-header">
+                <h2>💻 Technik- / IT-Hilfe</h2>
+                <span class="badge mental"></span>
+            </div>
+            <!-- Hier nutzen wir ein einzelnes Element, da es in deiner Vorlage zusammengefasst war. 
+                 Ich habe es für eine bessere Lesbarkeit in sinnvolle Listenpunkte gesplittet. -->
+            <ul class="task-list">
+                <li>Erklären der Bedienung</li>
+                <li>Einrichtung</li>
+                <li>Simple Fehlerbehebungen</li>
+		<li>Von technischen Geräten wie Handys, Computer, Drucker und mehr</li>
+		<li>Weitere, verwandte Tätigkeiten auf Anfrage</li>
+            </ul>
+        </section>
+
+        <!-- BEREICH 3: ALLTAG -->
+        <section id="alltagsbegleitung" class="service-section">
+            <div class="service-header">
+                <h2>🤝 Alltagsbegleitung</h2>
+                <span class="badge sozial"></span>
+            </div>
+            <ul class="task-list">
+                <li>Botengänge aller Art</li>
+                <li>Haustierbetreuung & Gassi gehen</li>
+                <li>Begleitung zu Terminen (Ärzte, Behörden etc.)</li>
+                <li>Kleinigkeiten im Haushalt (Kleine Handgriffe)</li>
+		<li>Weitere, verwandte Tätigkeiten auf Anfrage</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Kleinarbeiten Bad Iburg. Alle Rechte vorbehalten.</p>
+            <p style="margin-top: 10px;">
+                <a href="Impressum.html">Impressum</a> | 
+                <a href="Datenschutzerklärung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>

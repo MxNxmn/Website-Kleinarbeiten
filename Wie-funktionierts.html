@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wie funktioniert's? | Kleinarbeiten Bad Iburg</title>
+    <style>
+        /* Minimalistisches Design & Grundeinstellungen (aus deinem Template) */
+        :root {
+            --primary-color: #1e293b; 
+            --accent-color: #0ea5e9; 
+            --bg-color: #ffffff; 
+            --section-bg: #f8fafc; 
+            --text-color: #334155;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        .container {
+            max-width: 900px; 
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem; 
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--section-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- STYLES FÜR DEN ABLAUF (Schritt-für-Schritt) --- */
+        .steps-container {
+            margin-bottom: 4rem;
+        }
+
+        .step-box {
+            display: flex;
+            align-items: flex-start;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .step-box:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-right: 1.5rem;
+        }
+
+        .step-content h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            margin-top: 0.3rem;
+        }
+
+        .step-content p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        /* Kontaktformular Styles (unverändert) */
+        .booking-section {
+            background: var(--bg-color);
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color); 
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        label:first-of-type {
+            margin-top: 0;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--section-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-color);
+            transition: all 0.2s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1); 
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 2.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 0 2rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .step-box {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 1.5rem;
+            }
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+
+        <header>
+            <h1>Wie funktioniert's?</h1>
+            <p class="subtitle">Unser Konzept – unkompliziert, lokal und direkt.</p>
+        </header>
+
+        <section class="intro-text">
+            <strong>Das Konzept hinter Kleinarbeiten</strong><br>
+            Wir möchten es Ihnen so einfach wie möglich machen, Unterstützung für die kleinen Aufgaben im Alltag zu bekommen. Die Gründe dafür können unterschiedlich sein: Es findet sich eventuell kein Bekannter oder Fachbetrieb, der sich dem Schneiden der Gartenhecke widmet. Man selbst hat vielleicht kaum Zeit dafür oder ist körperlich nicht mehr in der Lage.<br>Dafür können Sie mit uns in Kontakt kommen und wir finden jemanden, der ihnen diese Aufgabe abnimmt.<br>Der Großteil des Geldes fließt dabei an den Kleinarbeiter selber und ans Finanzamt. Der Rest geht an das Unternehmen dahinter für die Anwerbung, Bereitstellung, Vermittlung und bürokratische Arbeiten.
+        </section>
+
+        <section class="steps-container">
+            
+            <div class="step-box">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>In Kontakt kommen</h3>
+                    <p>Nutzen Sie einfach das Kontaktformular unten auf der Seite, schreiben Sie uns eine E-Mail, eine Nachricht über Whatsapp oder rufen Sie einfach an. Beschreiben Sie kurz, wobei Sie Hilfe benötigen (z.B. Gartenarbeit oder kleine Botengänge). Wir prüfen die Anfrage und melden uns zeitnah bei Ihnen zurück.</p>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Werkzeug bereithalten</h3>
+                    <p>Um die Kosten für Sie so gering wie möglich zu halten, arbeiten wir im Regelfall mit dem Material und Werkzeug, das Sie vor Ort haben. Sollten Sie das nicht wollen oder das passende Werkzeug nicht besitzen, steht es Ihnen offen, es (gegen einen Aufpreis) von uns mitbringen zu lassen.</p>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Ablauf der Leistung</h3>
+                    <p>Nach der Absprache kommt jemand aus unserem Helfer-Team zum vereinbarten Termin zu Ihnen. Vor Ort zeigen Sie, was genau (evt. wie) gemacht werden soll. Die Berechnung der Arbeitszeit beginnt im Moment der Arbeitsaufnahme und sie endet sobald die Leistung vollbracht ist oder sie den Auftrag vorzeitig beenden. </p>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Zahlung</h3>
+                    <p>Die Abrechnung kann nach getaner Arbeit auf mehreren Wegen durchgeführt werden. Sie können den vereinbarten Stundenlohn nach Absprache 1. Bar, 2. per Überweisung oder 3. mit ihrer Bankkarte per Lesegerät bezahlen.</p>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Ihre Rückmeldung</h3>
+                    <p>Um unsere Qualität ständig zu verbessern, würden wir uns über eine Rückmeldung zu der geleisteten Arbeit freuen. Sowohl Kritik als auch Lob sind gerne gesehen!.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Kleinarbeiten Bad Iburg. Alle Rechte vorbehalten.</p>
+            <p style="margin-top: 10px;">
+                <a href="Impressum.html">Impressum</a> | 
+                <a href="Datenschutzerklärung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>

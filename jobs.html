@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs & Bewerbung | Kleinarbeiten Bad Iburg</title>
+    <style>
+        /* Minimalistisches Design & Grundeinstellungen */
+        :root {
+            --primary-color: #1e293b; 
+            --accent-color: #0ea5e9; 
+            --bg-color: #ffffff; 
+            --section-bg: #f8fafc; 
+            --text-color: #334155;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        .container {
+            max-width: 900px; 
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem; 
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .intro-section {
+            background: var(--section-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .intro-section p {
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Warum bei uns? - 3 Boxen */
+        .benefits-list {
+            list-style: none;
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .benefits-list li span {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefits-list li strong {
+            display: block;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Formular Styles */
+        .booking-section {
+            background: var(--bg-color);
+            padding: 2rem 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        label:first-of-type {
+            margin-top: 0;
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        input[type="tel"], 
+        input[type="number"],
+        select, 
+        textarea {
+            width: 30%;
+            padding: 1rem;
+            background-color: var(--section-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-color);
+            transition: all 0.2s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1); 
+        }
+
+        /* Checkbox-Gruppen Styling für das Bewerbungsformular */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            background-color: var(--section-bg);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 0.8rem;
+            margin-top: 0;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            text-transform: none;
+            font-size: 1rem;
+            letter-spacing: normal;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 2.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 0 2rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="container">
+        
+        <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+
+        <header>
+            <h1>Werde Teil des Teams</h1>
+            <p class="subtitle">Verdiene dir flexibel etwas dazu und hilf in deiner Nachbarschaft.</p>
+        </header>
+	
+<iframe width="540" height="680" src="https://65f002ae.sibforms.com/serve/MUIFAMSmAwioUQgBKY5Ogm84_zIXjPmG3-ulFczOU7CS18IHt3iKiPNCp_89UTXlcCJnzn5XOhYnLotDV2E1siwCSWAUdRLvhLEar8Kj-BORA8bFasBSv2UBoKYyImhW6MbZqlFF7PMwBPkmCZrfcVTg4X6EymvSicu8094aLmgVc9Iisw97wA32grS-7vEAsKP27UjA3-NahjRGGg==" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+
+
+<!--
+        <section class="intro-section">
+            <h2>Wie ist es ein Kleinarbeiter zu sein?</h2>
+            <p>Wir sind ein Netzwerk aus engagierten Jugendlichen und jungen Erwachsenen aus Bad Iburg und Umgebung. Unser Ziel ist es, den Leuten in unserer Nachbarschaft bei den Aufgaben zu helfen, für die sie selbst keine Zeit, Kraft oder das Händchen haben.</p>
+            <p><strong>Das Beste daran? Du bist komplett flexibel.</strong> Wir leiten Anfragen an unser Team weiter und du meldest dich nur dann für einen Job, wenn du wirklich Zeit und Lust hast. Egal ob Rasenmähen, Keller aufräumen, den Router neu einrichten oder Einkäufe erledigen – du suchst dir aus, was dir liegt.</p>
+
+            <ul class="benefits-list">
+                <li>
+                    <span>⏰</span>
+                    <strong>Volle Flexibilität</strong>
+                    Arbeite nur, wenn es in deinen Alltag passt (nach der Schule oder am Wochenende).
+                </li>
+                <li>
+                    <span>💶</span>
+                    <strong>Faires Taschengeld</strong>
+                    Gute und direkte Bezahlung nach jedem erledigten Auftrag.
+                </li>
+                <li>
+                    <span>🤝</span>
+                    <strong>Sozial & Lokal</strong>
+                    Du hilfst direkt Menschen aus deinem Ort und tust etwas Gutes.
+                </li>
+            </ul>
+        </section>
+
+        <section class="booking-section">
+            <h2>Bewirb dich jetzt</h2>
+            <form action="mailto:deine-email@beispiel.de" method="POST" enctype="text/plain">
+                
+                <label for="name">Vor- und Nachname</label>
+                <input type="text" id="name" name="Name" required placeholder="Dein Name">
+
+                <label for="age">Dein Alter</label>
+                <input type="number" id="age" name="Alter" required placeholder="z.B. 16" min="14" max="99">
+
+                <label for="email">E-Mail Adresse</label>
+                <input type="email" id="email" name="Email" required placeholder="deine@email.de">
+
+                <label for="phone">Handynummer (gerne für WhatsApp)</label>
+                <input type="tel" id="phone" name="Telefon" required placeholder="0151 12345678">
+
+                <label>Was machst du am liebsten? (Mehrfachauswahl möglich)</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="task-garten" name="Aufgaben_Garten" value="Ja">
+                        <label for="task-garten">Gartenarbeit (Rasenmähen, Unkraut)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="task-putzen" name="Aufgaben_Putzen" value="Ja">
+                        <label for="task-putzen">Putzen & Aufräumen</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="task-technik" name="Aufgaben_Technik" value="Ja">
+                        <label for="task-technik">Technikhilfe (Handy, PC, WLAN)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="task-botengaenge" name="Aufgaben_Botengaenge" value="Ja">
+                        <label for="task-botengaenge">Einkaufen & Botengänge</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="task-schleppen" name="Aufgaben_Schleppen" value="Ja">
+                        <label for="task-schleppen">Körperlich schwereres (Tragen, Umzug)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="task-alles" name="Aufgaben_Alles" value="Ja">
+                        <label for="task-alles">Ich bin für fast alles offen!</label>
+                    </div>
+                </div>
+
+                <label for="availability">Wann hast du meistens Zeit?</label>
+                <input type="text" id="availability" name="Verfuegbarkeit" required placeholder="z.B. Nachmittags ab 15 Uhr, am Wochenende...">
+
+                <label for="message">Kurze Nachricht über dich (Erfahrungen? Motivation?)</label>
+                <textarea id="message" name="Nachricht" rows="4" required placeholder="Erzähl uns kurz etwas über dich und warum du mitmachen möchtest..."></textarea>
+
+                <button type="submit">Bewerbung abschicken</button>
+            </form>
+        </section>
+-->
+
+        <footer>
+            <p>&copy; 2026 Kleinarbeiten Bad Iburg. Alle Rechte vorbehalten.</p>
+            <p style="margin-top: 10px;">
+                <a href="Impressum.html">Impressum</a> | 
+                <a href="Datenschutzerklärung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
