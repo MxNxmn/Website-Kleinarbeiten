@@ -59,7 +59,7 @@
             position: absolute;
             inset: 0;
             background-color: #b0bec5;         /* Fallback-Farbe bis Bild geladen */
-            background-image: url('hero.jpg'); /* <-- HIER IHREN DATEINAMEN EINTRAGEN */
+            background-image: url('Hero.jpg'); /* <-- HIER IHREN DATEINAMEN EINTRAGEN */
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -204,7 +204,7 @@
             height: 230px; /* hochkant / Portrait - etwas größer gemacht */
             border-radius: 10px;
             background-color: #dde3ec;
-            background-image: url('Me2.jpg'); /* <-- HIER IHREN DATEINAMEN EINTRAGEN */
+            background-image: url('Me.jpg'); /* <-- HIER IHREN DATEINAMEN EINTRAGEN */
             background-size: cover;
             background-position: center top;
             background-repeat: no-repeat;
@@ -284,6 +284,19 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        /* Formular Grids */
+        .form-row-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .form-row-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         label {
@@ -564,6 +577,9 @@
             .features-list {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .form-row-3, .form-row-2 {
+                grid-template-columns: 1fr;
+            }
         }
         @media screen and (max-width: 600px) {
             .footer-contact-info {
@@ -701,7 +717,7 @@
                 <input type="hidden" name="access_key" value="1910169c-6d6c-43ce-8659-7a25fdc2b14b">
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                <div class="form-row-3">
                     <div>
                         <label for="name" style="display: block; margin-top: 0; text-align: center;">Ihr Name</label>
                         <input type="text" id="name" name="Name" required placeholder="Tim Mustermann" style="width: 100%; text-align: center;">
@@ -716,7 +732,7 @@
                     </div>
                 </div>
 
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem;">
+                <div class="form-row-2">
                     <div>
                         <label for="service" style="display: block; margin-top: 0; text-align: center;">Gewünschte Leistung</label>
                         <select id="service" name="Leistung" required style="width: 100%; text-align: left;">
