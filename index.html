@@ -26,7 +26,8 @@
             line-height: 1.7;
             color: var(--text-color);
             background-color: var(--bg-color);
-            -webkit-font-smoothing: antialiased; 
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden; /* nötig damit Hero über Container hinausragt */
         }
 
         .container {
@@ -35,11 +36,134 @@
             padding: 2rem;
         }
 
-        header {
-            text-align: center;
-            padding: 5rem 0 4rem; 
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            position: relative;
+            width: 100vw;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-top: -2rem; /* hebt container-padding oben auf */
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 0;
         }
 
+        /* Bild-Platzhalter – ersetzen Sie den Hintergrund durch Ihr Foto */
+        .hero-image-placeholder {
+            position: absolute;
+            inset: 0;
+            background-color: #b0bec5;         /* Fallback-Farbe bis Bild geladen */
+            background-image: url('hero.jpg'); /* <-- HIER IHREN DATEINAMEN EINTRAGEN */
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        /* Dunkles Overlay für Lesbarkeit */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(15, 23, 42, 0.55) 0%,
+                rgba(15, 23, 42, 0.65) 60%,
+                rgba(15, 23, 42, 0.80) 100%
+            );
+            z-index: 1;
+        }
+
+        /* Inhalt über dem Bild */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            color: #ffffff;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.82);
+            font-weight: 400;
+            margin-bottom: 1.8rem;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-quote {
+            font-size: clamp(1rem, 2.2vw, 1.2rem);
+            color: rgba(255, 255, 255, 0.93);
+            font-style: italic;
+            line-height: 1.75;
+            margin-bottom: 2.2rem;
+            padding: 0 1rem;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.45);
+        }
+
+        .hero-quote::before {
+            content: '\201E';
+            font-size: 1.4em;
+            line-height: 0;
+            vertical-align: -0.3em;
+            margin-right: 2px;
+            color: var(--accent-color);
+        }
+
+        .hero-quote::after {
+            content: '\201C';
+            font-size: 1.4em;
+            line-height: 0;
+            vertical-align: -0.3em;
+            margin-left: 2px;
+            color: var(--accent-color);
+        }
+
+        /* Scroll-Hinweis unten */
+        .hero-scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255,255,255,0.55);
+            font-size: 0.78rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll-hint svg {
+            opacity: 0.6;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(6px); }
+        }
+
+
+
+        /* h1 außerhalb des Hero (falls weitere h1 genutzt werden) */
         h1 {
             color: var(--primary-color);
             font-size: 2.8rem;
@@ -55,11 +179,89 @@
             margin-bottom: 2rem;
         }
 
+        /* ===== INHABER-BILD ===== */
+        .owner-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+        }
+
+        .owner-image-wrapper {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .owner-image-placeholder {
+            width: 170px;
+            height: 230px; /* hochkant / Portrait - etwas größer gemacht */
+            border-radius: 10px;
+            background-color: #dde3ec;
+            background-image: url('Me2.jpg'); /* <-- HIER IHREN DATEINAMEN EINTRAGEN */
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            border: 3px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+        .owner-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            text-align: center;
+        }
+
+        .owner-label span {
+            color: var(--primary-color);
+        }
+
+        .owner-text h3 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .owner-text p {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 640px) {
+            .owner-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .owner-text h3 {
+                text-align: center;
+            }
+        }
+
         .services, .booking-section {
             background: var(--bg-color);
             padding: 3rem 0;
-            border-top: 1px solid var(--border-color); 
+            border-top: 1px solid var(--border-color);
             margin-bottom: 0;
+        }
+
+        /* Erster sichtbarer Abschnitt nach dem Hero */
+        .services {
+            padding-top: 4rem;
         }
 
         h2 {
@@ -310,6 +512,10 @@
         .faq-teaser {
             text-align: center;
             background: var(--section-bg);
+            padding: 1.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .whatsapp-float {
@@ -381,19 +587,37 @@
 <body>
 
     <div class="container">
-        <header>
-            <h1>Kleinarbeiten Bad Iburg</h1>
-            <p class="subtitle">Zuverlässige Hilfe für Haushalt, Garten und Alltag.</p>
-        </header>
 
-        <section class="services">
-            <div class="intro-text">
-                <p>„Manchmal braucht es jemanden, der einem kurz unter die Arme greift"<br>Ob Hilfe im Haus und Garten, bei der Technik oder bei Botengängen: Wir übernehmen die kleinen Jobs in ihrem Alltag. Unkomplizierte Hilfe direkt aus der Nachbarschaft.“</p>
-                
+        <section class="hero-section">
+            <div class="hero-image-placeholder" id="heroBg"></div>
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <h1>Kleinarbeiten Bad Iburg</h1>
+                <p class="subtitle">Zuverlässige Hilfe für Haushalt, Garten und Alltag.</p>
+
+                <p class="hero-quote">
+                    Manchmal braucht es jemanden, der einem kurz unter die Arme greift –
+                    ob im Haus, im Garten oder im Alltag.
+                    Unkomplizierte Hilfe direkt aus der Nachbarschaft.
+                </p>
+
                 <div style="text-align: center;">
-                    <a href="#kontakt" class="cta-button">Jetzt direkt anfragen</a>
+                    <a href="#kontakt" class="cta-button" style="font-size: 1.1rem; padding: 1.1rem 2.6rem; box-shadow: 0 4px 20px rgba(14,165,233,0.4);">
+                        Jetzt anfragen
+                    </a>
                 </div>
             </div>
+
+            <div class="hero-scroll-hint">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+        </section>
+        <section class="services">
+            <div style="display:none;"></div>
 
             <div class="disclaimer-box">
                 <strong>Wichtiger Hinweis:</strong> Bitte beachten Sie, dass wir keine Fachhandwerker sind. Aufgaben, die spezielles Fachwissen, behördliche Zulassungen (z. B. Installationen) oder handwerkliche Präzision erfordern, gehören nicht zu unserem Leistungsangebot.
@@ -445,6 +669,19 @@
                 </ul>
             </div>
 
+            <div class="owner-section">
+                <div class="owner-image-wrapper">
+                    <div class="owner-image-placeholder" id="ownerImg"></div>
+                </div>
+                <div class="owner-text">
+                    <h3>Hinter Kleinarbeiten Bad Iburg</h3>
+                    <p>
+                        Ich bin <strong>Max Neumann</strong>, gebürtig aus Bad Iburg und seit Jahren fest in der Region verwurzelt.
+                        Die Idee zu diesem Kleingewerbe entstand aus dem Wunsch heraus, unkomplizierte und
+                        bezahlbare Unterstützung direkt in der Nachbarschaft anzubieten.
+                    </p>
+                </div>
+            </div>
             <div class="info-section faq-teaser">
                 <h2>Noch Fragen?</h2>
                 <p>Wie sind die Helfer versichert? Was passiert, wenn jemand krank wird?</p>
@@ -464,42 +701,51 @@
                 <input type="hidden" name="access_key" value="1910169c-6d6c-43ce-8659-7a25fdc2b14b">
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-                <label for="name">Ihr Name</label>
-                <input type="text" id="name" name="Name" required placeholder="Tim Mustermann">
-
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-                    <div style="flex: 1; min-width: 250px;">
-                        <label for="email" style="display: block; margin-top: 0;">E-Mail Adresse</label>
-                        <input type="email" id="email" name="Email" required placeholder="tim@beispiel.de" style="width: 100%;">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                    <div>
+                        <label for="name" style="display: block; margin-top: 0; text-align: center;">Ihr Name</label>
+                        <input type="text" id="name" name="Name" required placeholder="Tim Mustermann" style="width: 100%; text-align: center;">
                     </div>
-                    <div style="flex: 1; min-width: 250px;">
-                        <label for="phone" style="display: block; margin-top: 0;">Telefonnummer (optional)</label>
-                        <input type="tel" id="phone" name="Telefon" style="width: 100%;">
+                    <div>
+                        <label for="email" style="display: block; margin-top: 0; text-align: center;">E-Mail Adresse</label>
+                        <input type="email" id="email" name="Email" required placeholder="tim@beispiel.de" style="width: 100%; text-align: center;">
+                    </div>
+                    <div>
+                        <label for="phone" style="display: block; margin-top: 0; text-align: center;">Telefonnummer (optional)</label>
+                        <input type="tel" id="phone" name="Telefon" placeholder="+49 123 4567890" style="width: 100%; text-align: center;">
                     </div>
                 </div>
 
-                <label for="service">Gewünschte Leistung</label>
-                <select id="service" name="Leistung" required>
-                    <option value="" disabled selected>Bitte auswählen...</option>
-                    <option value="Hof- und Gartenarbeiten">Hof- und Gartenarbeiten</option>
-                    <option value="Technik- / IT-Hilfe">Technik- / IT-Hilfe</option>
-                    <option value="Alltagsbegleitung">Alltagsbegleitung</option>
-                    <option value="Sonstiges">Sonstiges / Andere Anfrage</option>
-                </select>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem;">
+                    <div>
+                        <label for="service" style="display: block; margin-top: 0; text-align: center;">Gewünschte Leistung</label>
+                        <select id="service" name="Leistung" required style="width: 100%; text-align: left;">
+                            <option value="" disabled selected>Bitte auswählen...</option>
+                            <option value="Hof- und Gartenarbeiten">Hof- und Gartenarbeiten</option>
+                            <option value="Technik- / IT-Hilfe">Technik- / IT-Hilfe</option>
+                            <option value="Alltagsbegleitung">Alltagsbegleitung</option>
+                            <option value="Sonstiges">Sonstiges / Andere Anfrage</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="werkzeug" style="display: block; margin-top: 0; text-align: center;">Werden Werkzeuge gestellt?</label>
+                        <select id="werkzeug" name="Werkzeug_vor_Ort" required style="width: 100%; text-align: left;">
+                            <option value="" disabled selected>Bitte auswählen...</option>
+                            <option value="Ja, alles Notwendige ist da">Ja, alles Notwendige ist da</option>
+                            <option value="Nein, bitte mitbringen">Nein, bitte Werkzeug mitbringen (zzgl. 5€)</option>
+                            <option value="Teilweise (Details in der Nachricht)">Teilweise (Details siehe Nachricht unten)</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <label for="umfang" style="display: block; margin-top: 0; text-align: center;">Umfang der Aufgabe</label>
+                    <input type="text" id="umfang" name="Umfang" required placeholder="z.B. ca. 2 Stunden, 3 Fenster, 50qm Rasen..." style="width: 100%; text-align: center;">
+                </div>
 
-                <label for="umfang">Ungefährer Umfang der Aufgabe</label>
-                <input type="text" id="umfang" name="Umfang" required placeholder="z.B. ca. 2 Stunden, 3 Fenster, 50qm Rasen...">
-
-                <label for="werkzeug">Sind benötigte Werkzeuge/Geräte vor Ort vorhanden?</label>
-                <select id="werkzeug" name="Werkzeug_vor_Ort" required>
-                    <option value="" disabled selected>Bitte auswählen...</option>
-                    <option value="Ja, alles Notwendige ist da">Ja, alles Notwendige ist da</option>
-                    <option value="Nein, bitte mitbringen">Nein, bitte entsprechendes Werkzeug mitbringen</option>
-                    <option value="Teilweise (Details in der Nachricht)">Teilweise (Details siehe Nachricht unten)</option>
-                </select>
-
-                <label for="message">Nachricht / Details zur Aufgabe</label>
-                <textarea id="message" name="Nachricht" rows="4" required placeholder="Beschreiben Sie kurz, wobei wir Ihnen helfen können..."></textarea>
+                <div style="margin-top: 1.5rem;">
+                    <label for="message" style="display: block; margin-top: 0; text-align: center;">Nachricht / Details zur Aufgabe</label>
+                    <textarea id="message" name="Nachricht" rows="4" required placeholder="Beschreiben Sie kurz, wobei wir Ihnen helfen können..."></textarea>
+                </div>
 
                 <div style="display: flex; align-items: flex-start; gap: 10px; margin-top: 2rem; padding: 1rem; background-color: var(--section-bg); border: 1px solid var(--border-color); border-radius: 8px;">
                     <input type="checkbox" id="form-disclaimer" name="Hinweis_akzeptiert" required style="margin-top: 4px; width: auto; flex-shrink: 0; cursor: pointer;">
@@ -539,7 +785,7 @@
             </p>
         </footer>
 
-    </div> <script>
+    </div><script>
         const form = document.getElementById('booking-form');
         const result = document.getElementById('form-result');
         const submitBtn = document.getElementById('submit-btn');
@@ -600,10 +846,9 @@
     </script>
 
     <a href="https://wa.me/message/3WI3GTGNGNTVM1" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="30" height="30" fill="white">
+            <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.658 4.618 1.806 6.535L4 29l7.742-1.775A11.94 11.94 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22a9.94 9.94 0 0 1-5.021-1.356l-.36-.214-4.597 1.054 1.085-4.482-.236-.367A9.944 9.944 0 0 1 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.406-7.422c-.295-.148-1.748-.862-2.019-.96-.27-.099-.467-.148-.663.148-.197.295-.762.96-.934 1.158-.172.197-.344.222-.639.074-.295-.148-1.245-.459-2.372-1.463-.877-.782-1.469-1.748-1.641-2.043-.172-.295-.018-.455.129-.602.133-.132.295-.344.443-.516.148-.172.197-.295.295-.493.099-.197.05-.37-.025-.517-.074-.148-.663-1.6-.908-2.19-.239-.576-.482-.497-.663-.506l-.566-.01c-.197 0-.517.074-.788.37-.27.295-1.034 1.011-1.034 2.464s1.059 2.858 1.207 3.055c.148.197 2.084 3.183 5.047 4.464.706.305 1.256.487 1.685.623.708.225 1.352.193 1.861.117.568-.085 1.748-.714 1.995-1.404.246-.689.246-1.28.172-1.404-.074-.123-.27-.197-.566-.344z"/>
         </svg>
     </a>
-
 </body>
 </html>
