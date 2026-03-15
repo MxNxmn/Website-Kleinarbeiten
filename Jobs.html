@@ -23,6 +23,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 1.1rem; /* Größere Grundschriftart */
             line-height: 1.7;
             color: var(--text-color);
             background-color: var(--bg-color);
@@ -49,7 +50,7 @@
         }
 
         .subtitle {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             color: #64748b;
             font-weight: 400;
             margin-bottom: 2rem;
@@ -60,6 +61,7 @@
             margin-bottom: 2rem;
             color: var(--accent-color);
             text-decoration: none;
+            font-size: 1.1rem;
             font-weight: 600;
             transition: color 0.2s;
         }
@@ -73,7 +75,7 @@
             color: var(--primary-color);
             margin-bottom: 0.5rem;
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
@@ -110,20 +112,20 @@
             border-radius: 8px;
             padding: 1.5rem 1rem;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 1rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
         .benefits-list li span {
             display: block;
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 0.5rem;
         }
 
         .benefits-list li strong {
             display: block;
             color: var(--primary-color);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
 
@@ -144,7 +146,7 @@
 
         label {
             font-weight: 600;
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             color: #64748b;
             text-transform: uppercase;
             letter-spacing: 0.8px;
@@ -168,7 +170,7 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             font-family: inherit;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--text-color);
             transition: all 0.2s ease;
         }
@@ -207,7 +209,7 @@
         .checkbox-item label {
             margin: 0;
             text-transform: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
             letter-spacing: normal;
             color: var(--text-color);
             cursor: pointer;
@@ -218,7 +220,7 @@
             color: white;
             border: none;
             padding: 1.2rem;
-            font-size: 1rem;
+            font-size: 1.15rem;
             font-weight: 600;
             border-radius: 8px;
             cursor: pointer;
@@ -236,7 +238,7 @@
         footer {
             text-align: center;
             padding: 4rem 0 2rem;
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: #94a3b8;
             border-top: 1px solid var(--border-color);
             margin-top: 3rem;
@@ -280,87 +282,7 @@
 <iframe width="540" height="680" src="https://65f002ae.sibforms.com/serve/MUIFAMSmAwioUQgBKY5Ogm84_zIXjPmG3-ulFczOU7CS18IHt3iKiPNCp_89UTXlcCJnzn5XOhYnLotDV2E1siwCSWAUdRLvhLEar8Kj-BORA8bFasBSv2UBoKYyImhW6MbZqlFF7PMwBPkmCZrfcVTg4X6EymvSicu8094aLmgVc9Iisw97wA32grS-7vEAsKP27UjA3-NahjRGGg==" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
 
 
-<!--
-        <section class="intro-section">
-            <h2>Wie ist es ein Kleinarbeiter zu sein?</h2>
-            <p>Wir sind ein Netzwerk aus engagierten Jugendlichen und jungen Erwachsenen aus Bad Iburg und Umgebung. Unser Ziel ist es, den Leuten in unserer Nachbarschaft bei den Aufgaben zu helfen, für die sie selbst keine Zeit, Kraft oder das Händchen haben.</p>
-            <p><strong>Das Beste daran? Du bist komplett flexibel.</strong> Wir leiten Anfragen an unser Team weiter und du meldest dich nur dann für einen Job, wenn du wirklich Zeit und Lust hast. Egal ob Rasenmähen, Keller aufräumen, den Router neu einrichten oder Einkäufe erledigen – du suchst dir aus, was dir liegt.</p>
-
-            <ul class="benefits-list">
-                <li>
-                    <span>⏰</span>
-                    <strong>Volle Flexibilität</strong>
-                    Arbeite nur, wenn es in deinen Alltag passt (nach der Schule oder am Wochenende).
-                </li>
-                <li>
-                    <span>💶</span>
-                    <strong>Faires Taschengeld</strong>
-                    Gute und direkte Bezahlung nach jedem erledigten Auftrag.
-                </li>
-                <li>
-                    <span>🤝</span>
-                    <strong>Sozial & Lokal</strong>
-                    Du hilfst direkt Menschen aus deinem Ort und tust etwas Gutes.
-                </li>
-            </ul>
-        </section>
-
-        <section class="booking-section">
-            <h2>Bewirb dich jetzt</h2>
-            <form action="mailto:deine-email@beispiel.de" method="POST" enctype="text/plain">
-                
-                <label for="name">Vor- und Nachname</label>
-                <input type="text" id="name" name="Name" required placeholder="Dein Name">
-
-                <label for="age">Dein Alter</label>
-                <input type="number" id="age" name="Alter" required placeholder="z.B. 16" min="14" max="99">
-
-                <label for="email">E-Mail Adresse</label>
-                <input type="email" id="email" name="Email" required placeholder="deine@email.de">
-
-                <label for="phone">Handynummer (gerne für WhatsApp)</label>
-                <input type="tel" id="phone" name="Telefon" required placeholder="0151 12345678">
-
-                <label>Was machst du am liebsten? (Mehrfachauswahl möglich)</label>
-                <div class="checkbox-group">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="task-garten" name="Aufgaben_Garten" value="Ja">
-                        <label for="task-garten">Gartenarbeit (Rasenmähen, Unkraut)</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="task-putzen" name="Aufgaben_Putzen" value="Ja">
-                        <label for="task-putzen">Putzen & Aufräumen</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="task-technik" name="Aufgaben_Technik" value="Ja">
-                        <label for="task-technik">Technikhilfe (Handy, PC, WLAN)</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="task-botengaenge" name="Aufgaben_Botengaenge" value="Ja">
-                        <label for="task-botengaenge">Einkaufen & Botengänge</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="task-schleppen" name="Aufgaben_Schleppen" value="Ja">
-                        <label for="task-schleppen">Körperlich schwereres (Tragen, Umzug)</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="task-alles" name="Aufgaben_Alles" value="Ja">
-                        <label for="task-alles">Ich bin für fast alles offen!</label>
-                    </div>
-                </div>
-
-                <label for="availability">Wann hast du meistens Zeit?</label>
-                <input type="text" id="availability" name="Verfuegbarkeit" required placeholder="z.B. Nachmittags ab 15 Uhr, am Wochenende...">
-
-                <label for="message">Kurze Nachricht über dich (Erfahrungen? Motivation?)</label>
-                <textarea id="message" name="Nachricht" rows="4" required placeholder="Erzähl uns kurz etwas über dich und warum du mitmachen möchtest..."></textarea>
-
-                <button type="submit">Bewerbung abschicken</button>
-            </form>
-        </section>
--->
-
-        <footer>
+<footer>
             <p>&copy; 2026 Kleinarbeiten Bad Iburg. Alle Rechte vorbehalten.</p>
             <p style="margin-top: 10px;">
                 <a href="Impressum.html">Impressum</a> | 
