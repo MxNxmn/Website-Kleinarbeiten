@@ -163,8 +163,6 @@
             50% { transform: translateX(-50%) translateY(6px); }
         }
 
-
-
         /* h1 außerhalb des Hero (falls weitere h1 genutzt werden) */
         h1 {
             color: var(--primary-color);
@@ -214,8 +212,6 @@
             position: relative;
             overflow: hidden;
         }
-
-
 
         .owner-label {
             font-size: 0.9rem;
@@ -477,18 +473,172 @@
             margin-bottom: 3rem;
         }
 
-        .price-tag {
+        /* ===== NEUE PREIS-SEKTION (PSYCHOLOGISCH OPTIMIERT) ===== */
+        .price-card-wrapper {
+            max-width: 750px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .price-card {
+            background: #ffffff;
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            padding: 3rem 2.5rem 2.5rem 2.5rem;
+            position: relative;
+            box-shadow: 0 12px 35px rgba(14, 165, 233, 0.15);
+        }
+
+        .price-badge {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: #ffffff;
+            padding: 0.6rem 2rem;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.35);
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .price-intro {
             text-align: center;
-            font-size: 2.8rem;
+            font-size: 1.15rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .price-intro strong {
+            color: var(--primary-color);
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-table tr {
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .price-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .price-table td {
+            padding: 1.2rem 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .price-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .price-row-base td {
+            color: #64748b;
+        }
+
+        .price-row-discount td {
+            color: #10b981; /* Vertrauensvolles Grün für die Ersparnis */
+            font-weight: 600;
+        }
+
+        .price-row-effective td {
+            padding-top: 1.8rem;
+            padding-bottom: 1rem;
+        }
+
+        .price-row-effective .label {
+            font-size: 1.3rem;
             font-weight: 800;
             color: var(--primary-color);
-            margin: 1rem 0;
         }
-        
-        .price-tag span {
-            font-size: 1.4rem;
+
+        .price-row-effective .amount-wrapper {
+            display: flex;
+            align-items: baseline;
+            justify-content: flex-end;
+            gap: 5px;
+        }
+
+        .price-row-effective .amount {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .price-row-effective .unit {
+            font-size: 1.2rem;
             color: #64748b;
+            font-weight: 600;
+        }
+
+        /* Kognitive Leichtigkeit: Der Zero-Friction Service */
+        .price-benefits {
+            background: var(--section-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.8rem;
+            margin-top: 2rem;
+        }
+
+        .price-benefits h4 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .price-benefits ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .price-benefits li {
+            position: relative;
+            padding-left: 2.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-color);
             font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .price-benefits li:last-child {
+            margin-bottom: 0;
+        }
+
+        .price-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: -2px;
+            background: #10b981;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .price-footnote {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-top: 1.5rem;
+            line-height: 1.5;
         }
 
         /* Warum Wir */
@@ -584,6 +734,20 @@
                 grid-template-columns: 1fr;
             }
         }
+        @media (max-width: 640px) {
+            .price-card {
+                padding: 3rem 1.5rem 1.5rem 1.5rem;
+            }
+            .price-row-effective .amount {
+                font-size: 2.5rem;
+            }
+            .price-row-effective .label {
+                font-size: 1.1rem;
+            }
+            .price-table td {
+                font-size: 1rem;
+            }
+        }
         @media screen and (max-width: 600px) {
             .footer-contact-info {
                 flex-direction: column;
@@ -635,6 +799,7 @@
                 </svg>
             </div>
         </section>
+        
         <section class="services">
             <div style="display:none;"></div>
 
@@ -657,13 +822,47 @@
                 </a>
             </div>
 
-            <div class="info-section">
-                <h2>Unser Preis</h2>
-                <p style="text-align: center; color: #64748b; margin-top: 0.5rem;">Pauschal für alle Aufträge nehmen wir unter einer Mindestdauer von 1 Stunde:</p>
-                <div class="price-tag">
-                    20€ <span>/ Stunde</span>
+            <div class="price-card-wrapper">
+                <div class="price-card">
+                    <div class="price-badge">20% Staatlich Gefördert</div>
+                    
+                    <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Unser Preis</h2>
+                    <p class="price-intro">
+                        Unsere Leistungen sind nach <strong>§ 35a EStG steuerlich absetzbar</strong>. 
+                        Sie erhalten 20% der Lohnkosten direkt vom Finanzamt zurück. <br>( Haushalt & Garten - 4.000€/Jahr  |  IT-Hilfe - 1.200€/Jahr )
+                    </p>
+
+                    <table class="price-table">
+                        <tr class="price-row-base">
+                            <td>Berechneter Stundensatz (Brutto)</td>
+                            <td>25,00 €</td>
+                        </tr>
+                        <tr class="price-row-discount">
+                            <td>Ihre Steuer-Erstattung (20%)</td>
+                            <td>- 5 €</td>
+                        </tr>
+                        <tr class="price-row-effective">
+                            <td class="label">Ihr effektiver Preis</td>
+                            <td>
+                                <div class="amount-wrapper">
+                                    <span class="amount">20</span>
+                                    <span class="unit">€ / Std.</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="price-benefits">
+                        <h4>Unser Service an Sie:</h4>
+                        <ul>
+                            <li>Wir <strong>erinnern sie</strong> (falls gewünscht) <strong>an ihre Förderung</strong><br> zusammen mit einem <strong>bereitgestelltem Dokument</strong>, in dem alle beanspruchten Leistungen über das Jahr hinweg gesondert ausgewiesen werden - Sofort Bereit als Nachweis in der Steuererklärung eingereicht zu werden</li>
+                        </ul>
+                    </div>
+
+                    <p class="price-footnote">
+                        *Es handelt sich hierbei nicht um Steuerberatung. Die steuerliche Absetzbarkeit gilt für Arbeits-, Fahrt- und Maschinenkosten. Materialkosten sind vom Steuerabzug ausgeschlossen.
+                    </p>
                 </div>
-                <p style="text-align: center;">Für größere oder regelmäßig wiederkehrende Projekte bieten wir nach Absprache gerne einen Rabatt an.</p>
             </div>
 
             <div class="info-section">
@@ -701,6 +900,7 @@
                     </p>
                 </div>
             </div>
+            
             <div class="info-section faq-teaser">
                 <h2>Noch Fragen?</h2>
                 <p>Wie sind die Helfer versichert? Was passiert, wenn jemand krank wird?</p>
@@ -755,10 +955,6 @@
                             <option value="Teilweise (Details in der Nachricht)">Teilweise (Details siehe Nachricht unten)</option>
                         </select>
                     </div>
-                </div>
-                <div style="margin-top: 1.5rem;">
-                    <label for="umfang" style="display: block; margin-top: 0; text-align: center;">Umfang der Aufgabe</label>
-                    <input type="text" id="umfang" name="Umfang" required placeholder="z.B. ca. 2 Stunden, 3 Fenster, 50qm Rasen..." style="width: 100%; text-align: center;">
                 </div>
 
                 <div style="margin-top: 1.5rem;">
